@@ -59,6 +59,73 @@ const GlobalStyles = createGlobalStyle`
   button:focus {
     box-shadow: none !important;
   }
+
+  .home-section {
+    background: var(--section-background-color);
+    color: #fff;
+    padding: 50px 0;
+  }
+
+  .home-title {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+
+  .highlight {
+    color: #6c63ff;
+  }
+
+  .typewriter {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+
+  .home-description {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+
+  .home-image img {
+    max-width: 100%;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .home-skills {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .skills-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+
+  .skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .skills-item {
+    margin: 10px 20px;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .skills-item svg {
+    margin-right: 10px;
+  }
 `;
 
 export default GlobalStyles;

@@ -21,6 +21,13 @@ const StyledNavbar = styled(Navbar)`
       margin-right: 5px;
     }
   }
+
+  @media (max-width: 768px) {
+    .nav-link {
+      font-size: 1em;
+      margin: 0 5px;
+    }
+  }
 `;
 
 const Navigation = () => {

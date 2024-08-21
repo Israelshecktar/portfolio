@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@react-spring/web": "^9.7.4",
+    "react-reveal": "^1.2.2",
+    "typewriter-effect": "^2.21.0"
+  }
+}
