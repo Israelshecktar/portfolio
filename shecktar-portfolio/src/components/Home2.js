@@ -89,8 +89,8 @@ function Home2() {
                   cursor
                   cursorStyle="_"
                   typeSpeed={50}
-                  deleteSpeed={200}
-                  delaySpeed={2000}
+                  deleteSpeed={0}
+                  delaySpeed={10000}
                 />
               </HomeDescription>
             </Fade>

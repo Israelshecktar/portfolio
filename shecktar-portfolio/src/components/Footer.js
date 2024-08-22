@@ -63,7 +63,7 @@ const Footer = () => {
   return (
     <FooterContainer id="contact">
       <FooterText>
-        Designed and Developed by Shecktar
+        Built by Shecktar
       </FooterText>
       <CopyrightText>
         Copyright © 2024 Shecktar
