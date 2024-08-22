@@ -5,7 +5,8 @@
   "dependencies": {
     "@react-spring/web": "^9.7.4",
     "react-reveal": "^1.2.2",
-    "typewriter-effect": "^2.21.0"
+    "typewriter-effect": "^2.21.0",
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
