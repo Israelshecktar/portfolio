@@ -1,9 +1,16 @@
 import React from 'react';
 import { Container, Col } from 'react-bootstrap';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Type from './Type'; // Import Type component
 import Fade from 'react-reveal/Fade';
+import { FaTwitter, FaLinkedin, FaGithub, FaMedium } from 'react-icons/fa';
 import myImg from '../assets/images/my_img.JPG'; // Ensure this path is correct
+
+const gradientAnimation = keyframes`
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+`;
 
 const HeaderContainer = styled.header`
   background: url(${myImg}) no-repeat center top;
@@ -17,6 +24,7 @@ const HeaderContainer = styled.header`
   position: relative;
   overflow: hidden;
   padding-left: 50px;
+  background-attachment: fixed; /* Parallax effect */
 
   /* Adjust the background position to crop a bit from the top */
   background-position: center 10%;
@@ -28,7 +36,9 @@ const HeaderContainer = styled.header`
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    background-size: 200% 200%;
+    animation: ${gradientAnimation} 15s ease infinite; /* Animated gradient */
     z-index: 1;
   }
 
@@ -83,6 +93,20 @@ const TypeContainer = styled.div`
   }
 `;
 
+const SocialIcons = styled.div`
+  margin-top: 20px;
+  a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5em;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #0f0; /* Green color */
+    }
+  }
+`;
+
 const Header = () => (
   <HeaderContainer>
     <Container>
@@ -102,6 +126,12 @@ const Header = () => (
             <TypeContainer>
               <Type />
             </TypeContainer>
+            <SocialIcons>
+              <a href="https://twitter.com/shecktar5" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+              <a href="https://www.linkedin.com/in/israel-ewedairo-439bb5240" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+              <a href="https://github.com/Israelshecktar" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+              <a href="https://medium.com/@shecktar" aria-label="Medium" target="_blank" rel="noopener noreferrer"><FaMedium /></a>
+            </SocialIcons>
           </Fade>
         </HeaderContent>
       </Col>
