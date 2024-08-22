@@ -5,7 +5,7 @@ import { FaEnvelope, FaTwitter, FaLinkedin, FaGithub, FaMedium } from 'react-ico
 const FooterContainer = styled.footer`
   background-color: #1b1a2e;
   color: #fff;
-  padding: 10px 0;
+  padding: 5px 0;
   text-align: center;
   display: flex;
   justify-content: space-between;
@@ -19,38 +19,38 @@ const FooterContainer = styled.footer`
 const FooterText = styled.div`
   flex: 1;
   text-align: left;
-  padding: 10px;
+  padding: 5px;
 
   @media (max-width: 768px) {
     text-align: center;
-    padding: 5px;
+    padding: 3px;
   }
 `;
 
 const CopyrightText = styled.div`
   flex: 1;
   text-align: center;
-  padding: 10px;
+  padding: 5px;
 
   @media (max-width: 768px) {
-    padding: 5px;
+    padding: 3px;
   }
 `;
 
 const SocialIcons = styled.div`
   flex: 1;
   text-align: right;
-  padding: 10px;
+  padding: 5px;
 
   @media (max-width: 768px) {
     text-align: center;
-    padding: 5px;
+    padding: 3px;
   }
 
   a {
     color: #fff;
-    margin: 0 10px;
-    font-size: 1.5em;
+    margin: 0 5px;
+    font-size: 1.2em;
     transition: color 0.3s;
 
     &:hover {
