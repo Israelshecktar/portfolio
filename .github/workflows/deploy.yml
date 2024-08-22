@@ -23,9 +23,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
+        working-directory: ./shecktar-portfolio
 
       - name: Build the project
         run: npm run build
+        working-directory: ./shecktar-portfolio
 
       - name: Deploy to server
         env:
@@ -37,3 +39,4 @@ jobs:
           chmod 600 private_key
           scp -i private_key -o StrictHostKeyChecking=no -r build/ $USERNAME@$SERVER_IP:/portfolio/shecktar-portfolio
           ssh -i private_key -o StrictHostKeyChecking=no $USERNAME@$SERVER_IP 'sudo systemctl restart nginx'
+        working-directory: ./shecktar-portfolio
