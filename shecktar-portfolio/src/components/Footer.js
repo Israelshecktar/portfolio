@@ -11,9 +11,9 @@ const FooterContainer = styled.footer`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  position: fixed;
-  bottom: 0;
+  position: relative; /* Changed from fixed to relative */
   width: 100%;
+  margin-top: auto; /* Ensure it stays at the bottom of the content */
 `;
 
 const FooterText = styled.div`

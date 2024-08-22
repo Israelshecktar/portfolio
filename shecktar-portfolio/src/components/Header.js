@@ -3,88 +3,108 @@ import { Container, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 import Type from './Type'; // Import Type component
 import Fade from 'react-reveal/Fade';
-import Zoom from 'react-reveal/Zoom';
 import myImg from '../assets/images/my_img.JPG'; // Ensure this path is correct
 
 const HeaderContainer = styled.header`
-  text-align: center;
-  padding: 100px 0;
-  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  background: url(${myImg}) no-repeat center top;
+  background-size: cover;
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  color: #fff;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  padding-left: 50px;
+
+  /* Adjust the background position to crop a bit from the top */
+  background-position: center 10%;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+  }
 
   @media (max-width: 768px) {
-    padding: 50px 0;
-    height: auto;
-  }
-`;
-
-const ProfileImage = styled.img`
-  border-radius: 15px; /* Adjust the value to get the desired roundness */
-  width: 400px;
-  height: 600px;
-  margin-bottom: 20px;
-  transition: transform 0.3s;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-
-  @media (max-width: 768px) {
-    width: 200px;
-    height: 200px;
+    justify-content: center;
+    padding-left: 20px;
   }
 `;
 
 const HeaderContent = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: left;
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 20px;
+  margin-left: auto; /* Move content to the right */
+  text-align: right; /* Align text to the right */
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
+    margin-left: 0;
+    text-align: center; /* Center text on smaller screens */
   }
 `;
 
-const HeaderText = styled.div`
-  padding: 0 20px;
+const Heading = styled.h1`
+  font-size: 4em;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif; /* Apply the new font */
 
   @media (max-width: 768px) {
-    padding: 20px 0;
+    font-size: 3em;
+  }
+`;
+
+const SubHeading = styled.h2`
+  font-size: 3em;
+  margin-bottom: 30px;
+  font-family: 'Poppins', sans-serif; /* Apply the new font */
+
+  @media (max-width: 768px) {
+    font-size: 2em;
+  }
+`;
+
+const TypeContainer = styled.div`
+  padding: 20px;
+  text-align: right; /* Align text to the right */
+  font-family: 'Poppins', sans-serif; /* Apply the new font */
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    text-align: center; /* Center text on smaller screens */
   }
 `;
 
 const Header = () => (
   <HeaderContainer>
     <Container>
-      <HeaderContent>
-        <Col md={5} style={{ paddingBottom: 20 }}>
-          <Zoom>
-            <ProfileImage src={myImg} alt="Shecktar" className="img-fluid" />
-          </Zoom>
-        </Col>
-        <HeaderText>
-          <Fade left>
-            <h1 style={{ paddingBottom: 15 }} className="heading">
+      <Col>
+        <HeaderContent>
+          <Fade bottom>
+            <Heading>
               Hi There!{" "}
               <span className="wave" role="img" aria-labelledby="wave">
                 👋🏻
               </span>
-            </h1>
-            <h1 className="heading-name">
+            </Heading>
+            <SubHeading>
               I'M
               <strong className="main-name"> SHECKTAR</strong>
-            </h1>
-            <div style={{ padding: 50, textAlign: "left" }}>
+            </SubHeading>
+            <TypeContainer>
               <Type />
-            </div>
+            </TypeContainer>
           </Fade>
-        </HeaderText>
-      </HeaderContent>
+        </HeaderContent>
+      </Col>
     </Container>
   </HeaderContainer>
 );
