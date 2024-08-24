@@ -5,8 +5,10 @@ const Type = () => {
   return (
     <Typewriter
       words={[
+        "Software Engineer",
+        "Backend Specialist",
+        "Technical Writter",
         "Full Stack Developer",
-        "React Enthusiast",
         "Open Source Contributor",
         "Tech Blogger"
       ]}
