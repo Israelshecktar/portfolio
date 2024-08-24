@@ -9,6 +9,7 @@ const StyledNavbar = styled(Navbar)`
     color: #fff !important;
     font-size: 1.5em;
     font-weight: bold;
+    padding: 0 20px;
   }
   .navbar-nav {
     margin-left: auto;

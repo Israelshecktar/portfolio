@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/favicon.ico" sizes="any" />
         <title>Shecktar's Portfolio - This is the portfolio website for shecktar</title>
       </Head>
       <GlobalStyles />
