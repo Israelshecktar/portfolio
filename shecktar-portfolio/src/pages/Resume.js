@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
-import { FaFilePdf, FaEye } from 'react-icons/fa';
+import { FaFilePdf } from 'react-icons/fa';
 
 const backgroundAnimation = keyframes`
   0% { background-position: 0% 50%; }
@@ -62,7 +62,7 @@ const Resume = () => {
             <h1 style={{ color: '#fff', marginBottom: '30px' }}>My Resume</h1>
             <IframeContainer>
               <iframe
-                src="https://drive.google.com/file/d/1Y0JuVzGBozIlifQT3GkWA5lLGbALYqWt/preview"
+                src="https://drive.google.com/file/d/1hRT0ksfwx9Tv-mFMlUmD5CDaWtFK6838/preview"
                 width="100%"
                 height="100%"
                 allow="autoplay"
@@ -72,7 +72,8 @@ const Resume = () => {
               <AnimatedButton
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                href="https://drive.google.com/uc?export=download&id=1Y0JuVzGBozIlifQT3GkWA5lLGbALYqWt"
+                href="https://drive.google.com/uc?export=download&id=1hRT0ksfwx9Tv-mFMlUmD5CDaWtFK6838"
+                download
               >
                 <FaFilePdf /> Download Resume
               </AnimatedButton>

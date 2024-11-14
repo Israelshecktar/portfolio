@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
+  /* Import Space Grotesk from Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap');
+
   html {
     --section-background-color: linear-gradient(
       to bottom left,
@@ -18,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: 'Inter', sans-serif; /* Updated font */
+    font-family: 'Space Grotesk', sans-serif; /* Apply Space Grotesk globally */
     margin: 0;
     padding: 0;
     background: var(--section-background-color);
