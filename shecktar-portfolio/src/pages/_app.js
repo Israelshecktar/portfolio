@@ -10,7 +10,10 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <title>Shecktar Portfolio - This is the portfolio website for Shecktar</title>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="description" content="Shecktar's portfolio showcasing projects and achievements." />
+        <title>Shecktar Portfolio - Showcasing Projects and Achievements</title>
       </Head>
       <DefaultSeo {...SEO} />
       <GlobalStyles />
