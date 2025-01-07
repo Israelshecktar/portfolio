@@ -61,18 +61,22 @@ const Resume = () => {
           <Col md={12} className="text-center">
             <h1 style={{ color: '#fff', marginBottom: '30px' }}>My Resume</h1>
             <IframeContainer>
+              {/* Updated the iframe src to your new Drive link */}
               <iframe
-                src="https://drive.google.com/file/d/1eTA2lzAyDTYQ7UhSL2e9C9tsO6P2qyvs/view?usp=sharing"
+                src="https://drive.google.com/file/d/1eTA2lzAyDTYQ7UhSL2e9C9tsO6P2qyvs/view"
                 width="100%"
                 height="100%"
                 allow="autoplay"
+                title="resume"
               ></iframe>
             </IframeContainer>
+
             <ButtonContainer>
+              {/* Updated the download link to match the same file ID */}
               <AnimatedButton
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                href="https://drive.google.com/uc?export=download&id=1hRT0ksfwx9Tv-mFMlUmD5CDaWtFK6838"
+                href="https://drive.google.com/uc?export=download&id=1eTA2lzAyDTYQ7UhSL2e9C9tsO6P2qyvs"
                 download
               >
                 <FaFilePdf /> Download Resume
