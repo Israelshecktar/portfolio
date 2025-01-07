@@ -62,7 +62,7 @@ const Resume = () => {
             <h1 style={{ color: '#fff', marginBottom: '30px' }}>My Resume</h1>
             <IframeContainer>
               <iframe
-                src="https://drive.google.com/file/d/1hRT0ksfwx9Tv-mFMlUmD5CDaWtFK6838/preview"
+                src="https://drive.google.com/file/d/1eTA2lzAyDTYQ7UhSL2e9C9tsO6P2qyvs/view?usp=sharing"
                 width="100%"
                 height="100%"
                 allow="autoplay"
