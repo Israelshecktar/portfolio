@@ -5,43 +5,48 @@ import styled, { keyframes } from "styled-components";
 import { Typewriter } from "react-simple-typewriter";
 import Header from "../components/Header";
 
-// Background animation
-const backgroundAnimation = keyframes`
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+// A subtler background animation (slow shift)
+const backgroundShift = keyframes`
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 `;
 
-// Home section styling with vibrant gradient
+// Use a polished, darker gradient for the main section
 const HomeSection = styled.div`
-  background: linear-gradient(135deg, #7f5a83, #0d324d);
-  background-size: 200% 200%;
-  animation: ${backgroundAnimation} 12s ease infinite;
-  padding: 40px 0;
-  min-height: 90vh;
+  background: linear-gradient(135deg, #141E30, #243B55);
+  background-size: 400% 400%;
+  animation: ${backgroundShift} 15s ease infinite;
+  min-height: 85vh;
   display: flex;
   align-items: center;
+  padding: 60px 0;
+  color: #ffffff;
 `;
 
-// Description styling
+// Refine the description with subtle text styling
 const HomeDescription = styled(motion.div)`
-  font-size: 1.5em;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 80vh;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #e6e6e6;
+  max-width: 700px;
 `;
 
-// Image styling for responsive design
+// Container for the image to ensure it’s well-proportioned
 const ImageContainer = styled.div`
-  flex-shrink: 0;
-  width: 250px;
-  height: 250px;
+  width: 280px;
+  height: 280px;
   background: url("/coding.png") no-repeat center center;
   background-size: cover;
-  margin-left: 10px;
+  margin-left: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
     margin-left: 0;
@@ -51,45 +56,51 @@ const ImageContainer = styled.div`
   }
 `;
 
-// Section styling with gradient background
-const GradientSection = styled(motion.div)`
-  background: linear-gradient(135deg, #7f5a83, #0d324d);
-  background-size: 200% 200%;
-  animation: ${backgroundAnimation} 12s ease infinite;
+const StyledSection = styled.section`
+  background: linear-gradient(135deg, #141E30, #243B55);
+  background-size: 400% 400%;
+  animation: ${backgroundShift} 15s ease infinite;
+  color: #ffffff;
   padding: 60px 0;
-  color: #fff;
+  position: relative;
 
+  /* Subtle hover effect */
   &:hover {
-    background-position: 100% 50%;
+    background-position: 100% 100%;
   }
 `;
 
-// Section title
 const SectionTitle = styled.h2`
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   font-weight: 700;
-  color: #f0f0f0;
+  color: #f2f2f2;
+  letter-spacing: 1px;
 `;
 
-// Experience card with hover effects
+// A more refined card with subtle shadows and rounding
 const ExperienceCard = styled(motion.div)`
-  background: #3b6978;
-  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
   padding: 20px;
-  margin: 15px;
-  color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 15px 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(5px);
   transition: transform 0.3s ease-in-out, background 0.3s;
-
-  &:hover {
-    transform: translateY(-10px);
-    background: #204051;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-  }
 
   h3 {
     font-weight: 600;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+
+  p {
+    color: #cccccc;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.08);
   }
 `;
 
@@ -105,7 +116,7 @@ export default function Home() {
       <HomeSection id="home">
         <Container>
           <Row className="align-items-center">
-            <Col md={8}>
+            <Col md={7}>
               <HomeDescription
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -115,7 +126,7 @@ export default function Home() {
                   words={[
                     "As a Full Stack Software Engineer, I excel in designing scalable web applications using React.js, Next.js, Node.js, and more.",
                     "Creating seamless user experiences is my passion, and I strive to continuously improve and innovate.",
-                    "Whether it's architecting complex systems or optimizing performance, I love taking on new challenges!"
+                    "Whether it's architecting complex systems or optimizing performance, I love taking on new challenges!",
                   ]}
                   loop={false}
                   cursor
@@ -126,112 +137,132 @@ export default function Home() {
                 />
               </HomeDescription>
             </Col>
-            <Col md={4}>
+            <Col md={5} className="text-md-end text-center">
               <ImageContainer />
             </Col>
           </Row>
         </Container>
       </HomeSection>
 
-      {/* Experience Section with gradient */}
-      <GradientSection id="experience">
+      {/* Experience Section */}
+      <StyledSection id="experience">
         <Container>
           <SectionTitle>Experience</SectionTitle>
           <Row>
             <Col md={4}>
               <ExperienceCard
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
               >
                 <h3>Software Engineer at Alx_Africa</h3>
-                <p>Developed and maintained web applications using React.js and Node.js.</p>
+                <p>
+                  Developed and maintained web applications using React.js and
+                  Node.js.
+                </p>
               </ExperienceCard>
               <ExperienceCard
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
               >
                 <h3>Software Engineering Intern at Codsoft</h3>
-                <p>Developed and maintained web applications using React.js and Node.js.</p>
+                <p>
+                  Developed and maintained web applications using React.js and
+                  Node.js.
+                </p>
               </ExperienceCard>
             </Col>
             <Col md={4}>
               <ExperienceCard
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
               >
                 <h3>IT Specialist at Chemical and Allied Product PLC</h3>
-                <p>Implemented RESTful APIs and microservices using Flask and Django.</p>
+                <p>
+                  Implemented RESTful APIs and microservices using Flask and
+                  Django.
+                </p>
               </ExperienceCard>
             </Col>
             <Col md={4}>
               <ExperienceCard
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
               >
                 <h3>Team Lead Software Engineer at HouseHunt Startup</h3>
-                <p>Worked on full stack development projects, integrating front-end and back-end technologies.</p>
+                <p>
+                  Worked on full stack development projects, integrating
+                  front-end and back-end technologies.
+                </p>
               </ExperienceCard>
             </Col>
           </Row>
         </Container>
-      </GradientSection>
+      </StyledSection>
 
-      {/* Achievements Section with gradient */}
-      <GradientSection id="achievements">
+      {/* Achievements Section */}
+      <StyledSection id="achievements">
         <Container>
           <SectionTitle>Achievements</SectionTitle>
           <Row>
             <Col md={4}>
               <ExperienceCard
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
               >
                 <h3>Best Developer Award 2023</h3>
-                <p>Received the Best Developer Award for outstanding performance in 2023.</p>
+                <p>
+                  Received the Best Developer Award for outstanding performance
+                  in 2023.
+                </p>
               </ExperienceCard>
             </Col>
             <Col md={4}>
               <ExperienceCard
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
               >
                 <h3>AWS Certified Solutions Architect</h3>
-                <p>Earned AWS Solutions Architect certification, showcasing cloud expertise.</p>
+                <p>
+                  Earned AWS Solutions Architect certification, showcasing cloud
+                  expertise.
+                </p>
               </ExperienceCard>
             </Col>
             <Col md={4}>
               <ExperienceCard
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
               >
                 <h3>Research Publication</h3>
-                <p>Published a research paper on microservices architecture.</p>
+                <p>
+                  Published a research paper on microservices architecture.
+                </p>
               </ExperienceCard>
             </Col>
           </Row>
         </Container>
-      </GradientSection>
+      </StyledSection>
     </>
   );
 }
